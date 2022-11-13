@@ -54,7 +54,7 @@ app.post("/click", async (req, res) => {
     valueInputOption: "USER_ENTERED",
     requestBody: {
       majorDimension: "COLUMNS",
-      values: [["John"], ["Luis"], ["Frakne"]],
+      values: [[req.body.date], [req.body.user], [req.body.issue]],
     },
   });
 

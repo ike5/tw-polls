@@ -3,7 +3,6 @@ import reactLogo from "./assets/react.svg";
 import tutorworksLogo from "./assets/tutorworks.jpg";
 import fetch from "cross-fetch";
 
-
 export class Layout extends Component {
   constructor(props) {
     super(props);
@@ -15,20 +14,20 @@ export class Layout extends Component {
       countFreeze: 0,
       isButtonSubmitted: false,
       name: "",
-      postId: "",
     };
   }
 
-  clicked = () => {
+  clicked = (issueValue) => {
     const requestOptions = {
       method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        date: new Date().toLocaleString(),
+        user: this.state.name,
+        issue: issueValue,
+      }),
     };
-    fetch("http://localhost:3345/click", requestOptions)
+    fetch("http://localhost:3346/click", requestOptions)
       .then((response) => response.json())
       .then((json) => console.log(json));
   };
@@ -37,24 +36,28 @@ export class Layout extends Component {
     this.setState({
       count: this.state.count + 1,
     });
+    this.clicked("Kicked/Booted Out");
   };
 
   setAudioCount = (event) => {
     this.setState({
       countAudio: this.state.countAudio + 1,
     });
+    this.clicked("Audio");
   };
 
   setVideoCount = (event) => {
     this.setState({
       countVideo: this.state.countVideo + 1,
     });
+    this.clicked("Video");
   };
 
   setFreezeCount = (event) => {
     this.setState({
       countFreeze: this.state.countFreeze + 1,
     });
+    this.clicked("Freezes");
   };
 
   handleNameChange = (event) => {
@@ -86,16 +89,8 @@ export class Layout extends Component {
           {this.state.isButtonSubmitted ? (
             <div>
               <h1>Hi {this.state.name}!</h1>
-              <h1>{this.state.postId}</h1>
               <div>
-                <button
-                  onClick={() => {
-                    this.setCount();
-                    this.clicked();
-                  }}
-                >
-                  Kicked/Booted Out
-                </button>
+                <button onClick={this.setCount}>Kicked/Booted Out</button>
                 <label>{this.state.count}</label>
               </div>
               <div>
