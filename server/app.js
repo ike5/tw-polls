@@ -29,7 +29,7 @@ async function authSheets() {
   };
 }
 
-const id = "1d3DTc6KRyBUmxhREVH-C1N2YEWSVGFjhxZeB7NAQCik"
+const id = "1d3DTc6KRyBUmxhREVH-C1N2YEWSVGFjhxZeB7NAQCik";
 
 app.get("/", async (req, res) => {
   const { sheets } = await authSheets();
@@ -38,6 +38,23 @@ app.get("/", async (req, res) => {
   const getRows = await sheets.spreadsheets.values.get({
     spreadsheetId: id,
     range: "Sheet1!A1:C5",
+  });
+
+  res.send(getRows.data);
+});
+
+app.post("/click", async (req, res) => {
+  const { sheets } = await authSheets();
+
+  // Write rows to spreadsheet
+  const getRows = await sheets.spreadsheets.values.append({
+    spreadsheetId: id,
+    range: "Sheet1!A1:C",
+    valueInputOption: "USER_ENTERED",
+    requestBody: {
+      majorDimension: "COLUMNS",
+      values: [["John"], ["Luis"], ["Frakne"]],
+    },
   });
 
   res.send(getRows.data);

@@ -13,8 +13,20 @@ export class Layout extends Component {
       countFreeze: 0,
       isButtonSubmitted: false,
       name: "",
+      postId: "",
     };
+  }
 
+  clicked() {
+    // Simple POST request with a JSON body using fetch
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({  }),
+    };
+    fetch("http://localhost:3345/click", requestOptions)
+      .then((response) => response.json())
+      .then((data) => this.setState({ postId: data.id }));
   }
 
   setCount = (event) => {
@@ -70,8 +82,16 @@ export class Layout extends Component {
           {this.state.isButtonSubmitted ? (
             <div>
               <h1>Hi {this.state.name}!</h1>
+              <h1>{this.state.postId}</h1>
               <div>
-                <button onClick={this.setCount}>Kicked/Booted Out</button>
+                <button
+                  onClick={() => {
+                    this.setCount();
+                    this.clicked();
+                  }}
+                >
+                  Kicked/Booted Out
+                </button>
                 <label>{this.state.count}</label>
               </div>
               <div>
