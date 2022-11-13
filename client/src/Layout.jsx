@@ -89,21 +89,25 @@ export class Layout extends Component {
           {this.state.isButtonSubmitted ? (
             <div>
               <h1>Hi {this.state.name}!</h1>
-              <div>
-                <button onClick={this.setCount}>Kicked/Booted Out</button>
-                <label>{this.state.count}</label>
-              </div>
-              <div>
-                <button onClick={this.setAudioCount}>Audio issue</button>
-                <label>{this.state.countAudio}</label>
-              </div>
-              <div>
-                <button onClick={this.setVideoCount}>Video issue</button>
-                <label>{this.state.countVideo}</label>
-              </div>
-              <div>
-                <button onClick={this.setFreezeCount}>Freezing issue</button>
-                <label>{this.state.countFreeze}</label>
+              <div className="flex flex-col gap-4">
+                <div>
+                  <button className="btn shadow-lg" onClick={this.setCount}>
+                    Kicked/Booted Out
+                  </button>
+                  <label>{this.state.count}</label>
+                </div>
+                <div>
+                  <button className="btn shadow-2xl" onClick={this.setAudioCount}>Audio issue</button>
+                  <label>{this.state.countAudio}</label>
+                </div>
+                <div>
+                  <button className="btn shadow-sm" onClick={this.setVideoCount}>Video issue</button>
+                  <label>{this.state.countVideo}</label>
+                </div>
+                <div>
+                  <button className="btn shadow-sm" onClick={this.setFreezeCount}>Freezing issue</button>
+                  <label>{this.state.countFreeze}</label>
+                </div>
               </div>
             </div>
           ) : (
@@ -121,7 +125,11 @@ export class Layout extends Component {
                     onChange={this.handleNameChange}
                   />
                 </div>
-                <button className="btn btn-primary w-64" type="submit" disabled={this.state.name < 1}>
+                <button
+                  className="btn btn-primary w-64"
+                  type="submit"
+                  disabled={this.state.name < 1}
+                >
                   Submit
                 </button>
               </form>
