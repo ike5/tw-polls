@@ -8,7 +8,7 @@ const port = 3346;
 app.use(express.json());
 app.use(cors());
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+const id = "1d3DTc6KRyBUmxhREVH-C1N2YEWSVGFjhxZeB7NAQCik";
 
 async function authSheets() {
   //Function for authentication object
@@ -29,8 +29,6 @@ async function authSheets() {
     sheets,
   };
 }
-
-const id = "1d3DTc6KRyBUmxhREVH-C1N2YEWSVGFjhxZeB7NAQCik";
 
 app.get("/", async (req, res) => {
   const { sheets } = await authSheets();
@@ -60,3 +58,5 @@ app.post("/click", async (req, res) => {
 
   res.send(getRows.data);
 });
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
