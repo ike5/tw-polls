@@ -1,11 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const { google } = require("googleapis");
-
 const app = express();
-const port = 3345;
+const port = 3346;
 
 // this allows us to parse the incoming request body as JSON
 app.use(express.json());
+app.use(cors());
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

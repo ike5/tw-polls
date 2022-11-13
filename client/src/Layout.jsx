@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import reactLogo from "./assets/react.svg";
 import tutorworksLogo from "./assets/tutorworks.jpg";
+import fetch from "cross-fetch";
+
 
 export class Layout extends Component {
   constructor(props) {
@@ -17,17 +19,19 @@ export class Layout extends Component {
     };
   }
 
-  clicked() {
-    // Simple POST request with a JSON body using fetch
+  clicked = () => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({  }),
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
     };
     fetch("http://localhost:3345/click", requestOptions)
       .then((response) => response.json())
-      .then((data) => this.setState({ postId: data.id }));
-  }
+      .then((json) => console.log(json));
+  };
 
   setCount = (event) => {
     this.setState({

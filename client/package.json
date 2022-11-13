@@ -13,6 +13,7 @@
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",
     "bootstrap": "^5.2.2",
+    "cross-fetch": "^3.1.5",
     "fs": "^0.0.1-security",
     "googleapis": "^105.0.0",
     "process": "^0.11.10",
