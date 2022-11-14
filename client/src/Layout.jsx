@@ -28,7 +28,7 @@ export class Layout extends Component {
         issue: issueValue,
       }),
     };
-    fetch("http://localhost:3347/click", requestOptions) // this works
+    fetch("http://54.156.174.146:3347/click", requestOptions) // this works
       .then((response) => response.json())
       .then((json) => console.log(json));
   };
