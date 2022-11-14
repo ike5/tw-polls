@@ -30,13 +30,13 @@ async function authSheets() {
   };
 }
 
-app.get("/", async (req, res) => {
+app.get("/insights", async (req, res) => {
   const { sheets } = await authSheets();
 
   // Read rows from spreadsheet
   const getRows = await sheets.spreadsheets.values.get({
     spreadsheetId: id,
-    range: "Sheet1!A1:C5",
+    range: "Sheet2!A2:G2",
   });
 
   res.send(getRows.data);
@@ -55,6 +55,8 @@ app.post("/click", async (req, res) => {
       values: [[req.body.date], [req.body.user], [req.body.issue]],
     },
   });
+
+  console.log(req.body)
 
   res.send(getRows.data);
 });

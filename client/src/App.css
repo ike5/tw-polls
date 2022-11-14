@@ -26,6 +26,15 @@
   filter: drop-shadow(0 0 2em #656cffaa);
 }
 
+.icon {
+  height: 3em;
+  padding: 1.5;
+  will-change: filter;
+}
+.filter-green{
+  filter: invert(40%) sepia(50%) saturate(1000%) hue-rotate(276deg) brightness(91%) contrast(92%);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
