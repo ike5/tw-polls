@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { google } = require("googleapis");
 const app = express();
-const port = 3000;
+const port = 3347;
 
 // this allows us to parse the incoming request body as JSON
 app.use(express.json());
