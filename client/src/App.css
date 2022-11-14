@@ -31,8 +31,13 @@
   padding: 1.5;
   will-change: filter;
 }
-.filter-green{
-  filter: invert(40%) sepia(50%) saturate(1000%) hue-rotate(276deg) brightness(91%) contrast(92%);
+.filter-green {
+  filter: invert(40%) sepia(50%) saturate(1000%) hue-rotate(276deg)
+    brightness(91%) contrast(92%);
+}
+
+.svg-color {
+  color: hsl(316 70 50);
 }
 
 @keyframes logo-spin {
@@ -67,7 +72,7 @@
 
 .background {
   --tw-bg-opacity: 1;
-    background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
 }
 
 .min-height {

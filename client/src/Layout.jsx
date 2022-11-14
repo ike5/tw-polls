@@ -91,9 +91,9 @@ export class Layout extends Component {
                       />
                     </a>
                   </div> */}
-                    <h2 className="center text-3xl font-extrabold">
-                      Welcome {this.state.name}!
-                    </h2>
+                  <h2 className="center text-3xl font-extrabold">
+                    Welcome {this.state.name}!
+                  </h2>
                 </div>
                 <div className="flex flex-col space-y-4">
                   <Stats />
@@ -117,7 +117,6 @@ export class Layout extends Component {
                             >
                               Kicked/Booted Out
                             </button>
-                            <label>{this.state.count}</label>
                           </div>
                           <div>
                             <button
@@ -126,7 +125,6 @@ export class Layout extends Component {
                             >
                               Audio issue
                             </button>
-                            <label>{this.state.countAudio}</label>
                           </div>
                           <div>
                             <button
@@ -135,7 +133,6 @@ export class Layout extends Component {
                             >
                               Video issue
                             </button>
-                            <label>{this.state.countVideo}</label>
                           </div>
                           <div>
                             <button
@@ -144,7 +141,6 @@ export class Layout extends Component {
                             >
                               Freezing issue
                             </button>
-                            <label>{this.state.countFreeze}</label>
                           </div>
                         </div>
                       </div>
