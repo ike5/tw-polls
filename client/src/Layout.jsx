@@ -28,7 +28,7 @@ export class Layout extends Component {
         issue: issueValue,
       }),
     };
-    fetch("http://localhost:3346/click", requestOptions)
+    fetch("https://flourishing-nougat-5b4c49.netlify.app:3000/click", requestOptions)
       .then((response) => response.json())
       .then((json) => console.log(json));
   };
