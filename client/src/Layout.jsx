@@ -82,63 +82,78 @@ export class Layout extends Component {
               <img src={tutorworksLogo} className="tw" alt="Tutorworks logo" />
             </a>
           </div> */}
-          <Stats />
-          <div className="card card-side bg-base-100 shadow-xl">
-            <figure>
-              <a href="https://hub.tutorworks.net" target="_blank">
-                <img src={reactLogo} className="logo react" alt="React logo" />
-              </a>
-            </figure>
 
-            {/* this is where the stuff happens */}
-
-            <div>
-              {this.state.isButtonSubmitted ? (
-                <div className="card-body">
-                  <div>
-                    <h1 className="">Hi {this.state.name}!</h1>
-                    <div className="flex flex-col gap-4">
-                      <div>
-                        <button
-                          className="btn btn-outline btn-primary"
-                          onClick={this.setCount}
-                        >
-                          Kicked/Booted Out
-                        </button>
-                        <label>{this.state.count}</label>
-                      </div>
-                      <div>
-                        <button
-                          className="btn btn-outline btn-secondary"
-                          onClick={this.setAudioCount}
-                        >
-                          Audio issue
-                        </button>
-                        <label>{this.state.countAudio}</label>
-                      </div>
-                      <div>
-                        <button
-                          className="btn btn-outline btn-warning"
-                          onClick={this.setVideoCount}
-                        >
-                          Video issue
-                        </button>
-                        <label>{this.state.countVideo}</label>
-                      </div>
-                      <div>
-                        <button
-                          className="btn btn-outline btn-success"
-                          onClick={this.setFreezeCount}
-                        >
-                          Freezing issue
-                        </button>
-                        <label>{this.state.countFreeze}</label>
+          <div>
+            {this.state.isButtonSubmitted ? (
+              <div className="flex flex-col space-y-4">
+                <Stats />
+                <div className="card card-side bg-base-100 shadow-xl">
+                  <figure>
+                    <a href="https://hub.tutorworks.net" target="_blank">
+                      <img
+                        src={reactLogo}
+                        className="logo react"
+                        alt="React logo"
+                      />
+                    </a>
+                  </figure>
+                  <div className="card-body">
+                    <div>
+                      <h1 className="">Hi {this.state.name}!</h1>
+                      <div className="flex flex-col gap-4">
+                        <div>
+                          <button
+                            className="btn btn-outline btn-primary"
+                            onClick={this.setCount}
+                          >
+                            Kicked/Booted Out
+                          </button>
+                          <label>{this.state.count}</label>
+                        </div>
+                        <div>
+                          <button
+                            className="btn btn-outline btn-secondary"
+                            onClick={this.setAudioCount}
+                          >
+                            Audio issue
+                          </button>
+                          <label>{this.state.countAudio}</label>
+                        </div>
+                        <div>
+                          <button
+                            className="btn btn-outline btn-warning"
+                            onClick={this.setVideoCount}
+                          >
+                            Video issue
+                          </button>
+                          <label>{this.state.countVideo}</label>
+                        </div>
+                        <div>
+                          <button
+                            className="btn btn-outline btn-success"
+                            onClick={this.setFreezeCount}
+                          >
+                            Freezing issue
+                          </button>
+                          <label>{this.state.countFreeze}</label>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              ) : (
-                <div>
+              </div>
+            ) : (
+              <div>
+                <div className="card card-side bg-base-100 shadow-xl">
+                  <figure>
+                    <a href="https://hub.tutorworks.net" target="_blank">
+                      <img
+                        src={reactLogo}
+                        className="logo react"
+                        alt="React logo"
+                      />
+                    </a>
+                  </figure>
                   <div className="card-body">
                     <h2 className="card-title">Enter your Name</h2>
                     <div className="card-actions ">
@@ -164,8 +179,8 @@ export class Layout extends Component {
                     </div>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

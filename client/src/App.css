@@ -55,3 +55,12 @@
   margin-right: auto;
   width: 50%;
 }
+
+.background {
+  --tw-bg-opacity: 1;
+    background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+}
+
+.min-height {
+  min-height: 100vh;
+}
