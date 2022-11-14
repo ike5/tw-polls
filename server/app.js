@@ -31,34 +31,42 @@ async function authSheets() {
 }
 
 app.get("/insights", async (req, res) => {
-  const { sheets } = await authSheets();
+  try {
+    const { sheets } = await authSheets();
 
-  // Read rows from spreadsheet
-  const getRows = await sheets.spreadsheets.values.get({
-    spreadsheetId: id,
-    range: "Sheet2!A2:G2",
-  });
+    // Read rows from spreadsheet
+    const getRows = await sheets.spreadsheets.values.get({
+      spreadsheetId: id,
+      range: "Sheet2!A2:G2",
+    });
 
-  res.send(getRows.data);
+    res.send(getRows.data);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.post("/click", async (req, res) => {
-  const { sheets } = await authSheets();
+  try {
+    const { sheets } = await authSheets();
 
-  // Write rows to spreadsheet
-  const getRows = await sheets.spreadsheets.values.append({
-    spreadsheetId: id,
-    range: "Sheet1!A1:C",
-    valueInputOption: "USER_ENTERED",
-    requestBody: {
-      majorDimension: "COLUMNS",
-      values: [[req.body.date], [req.body.user], [req.body.issue]],
-    },
-  });
+    // Write rows to spreadsheet
+    const getRows = await sheets.spreadsheets.values.append({
+      spreadsheetId: id,
+      range: "Sheet1!A1:C",
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        majorDimension: "COLUMNS",
+        values: [[req.body.date], [req.body.user], [req.body.issue]],
+      },
+    });
 
-  console.log(req.body)
+    console.log(req.body);
 
-  res.send(getRows.data);
+    res.send(getRows.data);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
