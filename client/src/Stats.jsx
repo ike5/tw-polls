@@ -13,7 +13,7 @@ function Stats() {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     };
-    fetch("http://localhost:3346/insights", requestOptions)
+    fetch("http://54.156.174.146:3347/insights", requestOptions)
       .then((response) => response.json())
       .then((json) => {
         setKickValues(json.values[0][0]);
