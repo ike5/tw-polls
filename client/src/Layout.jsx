@@ -112,34 +112,46 @@ export class Layout extends Component {
                         <div className="flex flex-col gap-4">
                           <div>
                             <button
-                              className="btn btn-outline btn-primary"
+                              className="btn btn-outline btn-primary gap-2"
                               onClick={this.setCount}
                             >
-                              Kicked/Booted Out
+                              Kicked Out
+                              <div className="badge badge-secondary badge-md">
+                                {this.state.count}
+                              </div>
                             </button>
                           </div>
                           <div>
                             <button
-                              className="btn btn-outline btn-secondary"
+                              className="btn btn-outline btn-secondary gap-2"
                               onClick={this.setAudioCount}
                             >
                               Audio issue
+                              <div className="badge badge-secondary badge-md">
+                                {this.state.countAudio}
+                              </div>
                             </button>
                           </div>
                           <div>
                             <button
-                              className="btn btn-outline btn-warning"
+                              className="btn btn-outline btn-warning gap-2"
                               onClick={this.setVideoCount}
                             >
                               Video issue
+                              <div className="badge badge-warning badge-md">
+                                {this.state.countVideo}
+                              </div>
                             </button>
                           </div>
                           <div>
                             <button
-                              className="btn btn-outline btn-success"
+                              className="btn btn-outline btn-success gap-2"
                               onClick={this.setFreezeCount}
                             >
-                              Freezing issue
+                              Freeze issue
+                              <div className="badge badge-success badge-md">
+                                {this.state.countFreeze}
+                              </div>
                             </button>
                           </div>
                         </div>
@@ -168,6 +180,8 @@ export class Layout extends Component {
                           <label className="label"></label>
                           <input
                             type="text"
+                            autoFocus
+                            id="name-input"
                             placeholder="Type here"
                             className="input input-bordered w-full max-w-xs"
                             value={this.state.name}
