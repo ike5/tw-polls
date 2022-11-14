@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import reactLogo from "./assets/react.svg";
-import tutorworksLogo from "./assets/tutorworks.jpg";
 import fetch from "cross-fetch";
+import Stats from "./Stats";
 
 export class Layout extends Component {
   constructor(props) {
@@ -76,65 +76,97 @@ export class Layout extends Component {
   render() {
     return (
       <div>
-        <div>
-          <a href="https://hub.tutorworks.net" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-          <a href="https://tutorworks.org" target="_blank">
-            <img src={tutorworksLogo} className="logo" alt="Tutorworks logo" />
-          </a>
-        </div>
+        <div className="flex flex-col w-full border-opacity-50">
+          {/* <div className="">
+            <a href="https://tutorworks.org" target="_blank">
+              <img src={tutorworksLogo} className="tw" alt="Tutorworks logo" />
+            </a>
+          </div> */}
+          <Stats />
+          <div className="card card-side bg-base-100 shadow-xl">
+            <figure>
+              <a href="https://hub.tutorworks.net" target="_blank">
+                <img src={reactLogo} className="logo react" alt="React logo" />
+              </a>
+            </figure>
 
-        <div className="card">
-          {this.state.isButtonSubmitted ? (
+            {/* this is where the stuff happens */}
+
             <div>
-              <h1>Hi {this.state.name}!</h1>
-              <div className="flex flex-col gap-4">
-                <div>
-                  <button className="btn shadow-lg" onClick={this.setCount}>
-                    Kicked/Booted Out
-                  </button>
-                  <label>{this.state.count}</label>
+              {this.state.isButtonSubmitted ? (
+                <div className="card-body">
+                  <div>
+                    <h1 className="">Hi {this.state.name}!</h1>
+                    <div className="flex flex-col gap-4">
+                      <div>
+                        <button
+                          className="btn btn-outline btn-primary"
+                          onClick={this.setCount}
+                        >
+                          Kicked/Booted Out
+                        </button>
+                        <label>{this.state.count}</label>
+                      </div>
+                      <div>
+                        <button
+                          className="btn btn-outline btn-secondary"
+                          onClick={this.setAudioCount}
+                        >
+                          Audio issue
+                        </button>
+                        <label>{this.state.countAudio}</label>
+                      </div>
+                      <div>
+                        <button
+                          className="btn btn-outline btn-warning"
+                          onClick={this.setVideoCount}
+                        >
+                          Video issue
+                        </button>
+                        <label>{this.state.countVideo}</label>
+                      </div>
+                      <div>
+                        <button
+                          className="btn btn-outline btn-success"
+                          onClick={this.setFreezeCount}
+                        >
+                          Freezing issue
+                        </button>
+                        <label>{this.state.countFreeze}</label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              ) : (
                 <div>
-                  <button className="btn shadow-2xl" onClick={this.setAudioCount}>Audio issue</button>
-                  <label>{this.state.countAudio}</label>
+                  <div className="card-body">
+                    <h2 className="card-title">Enter your Name</h2>
+                    <div className="card-actions ">
+                      <form className="space-y-2" onSubmit={this.handleSubmit}>
+                        <div className="form-control w-full max-w-xs">
+                          <label className="label"></label>
+                          <input
+                            type="text"
+                            placeholder="Type here"
+                            className="input input-bordered w-full max-w-xs"
+                            value={this.state.name}
+                            onChange={this.handleNameChange}
+                          />
+                        </div>
+                        <button
+                          className="btn btn-primary w-full"
+                          type="submit"
+                          disabled={this.state.name < 1}
+                        >
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <button className="btn shadow-sm" onClick={this.setVideoCount}>Video issue</button>
-                  <label>{this.state.countVideo}</label>
-                </div>
-                <div>
-                  <button className="btn shadow-sm" onClick={this.setFreezeCount}>Freezing issue</button>
-                  <label>{this.state.countFreeze}</label>
-                </div>
-              </div>
+              )}
             </div>
-          ) : (
-            <div>
-              <form className="space-y-2" onSubmit={this.handleSubmit}>
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text">What is your name?</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Type here"
-                    className="input input-bordered w-full max-w-xs"
-                    value={this.state.name}
-                    onChange={this.handleNameChange}
-                  />
-                </div>
-                <button
-                  className="btn btn-primary w-64"
-                  type="submit"
-                  disabled={this.state.name < 1}
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     );
