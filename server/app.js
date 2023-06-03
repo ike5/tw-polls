@@ -8,7 +8,7 @@ const port = 3347;
 app.use(express.json());
 app.use(cors());
 
-const id = "1d3DTc6KRyBUmxhREVH-C1N2YEWSVGFjhxZeB7NAQCik";
+const id = 
 
 async function authSheets() {
   //Function for authentication object
